@@ -22,10 +22,12 @@ Each version consists of these files.
 |`RowIndex`   |   86.371 |   90.078  |  10.139 |   151.297 |
 |`RowVectorST`|   66.856 |   77.359  |  --.--- |   ---.--- |
 |`RowVectorIO`|   61.444 |   70.766  |   8.543 |   110.641 |
-|`WhyNot`     |    5.372 |    9.031  |   4.279 |    54.031 |
+|`WhyNot`     |    4.683 |    4.656  |   4.279 |    54.031 |
 
 
 These times, in seconds, are for an i5-12600K (3.69 GHz and 16 cores) with 16 GB of RAM, and it may be relevant that the "disk" is solid state. The '(s)' is for single-threaded, and '(t)' is for threaded. The programs were run with `O2` optimization, although it didn't seem to make much difference. Everything was done with GHC 9.2.5 on Windows 10. I was careful about timing, but not obsessive, and the numbers vary by a few percent around the values given above. There are profiler output files for every version except `Initial` and `Cleaner`.
+
+*Whoops*: I see now that many of the single-threaded tests above were run with the `-threaded` option, even though there was no explicit threading happening. If the CPU time is greater than the user time, that's what happned. 
 
 The `Initial` version is *absolutely loaded* with inefficiencies, but that's OK. It's easy to understand, which is one of Haskell's strengths. It can be run in parallel or single-threaded by changing one line in Yahtzee.hs; search for `parList`.
 
