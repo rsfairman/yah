@@ -1,0 +1,241 @@
+	Sat Jan 28 20:27 2023 Time and Allocation Profiling Report  (Final)
+
+	   yah +RTS -N -p -s -hc -i0.1 -L100 -RTS
+
+	total time  =       44.35 secs   (138159 ticks @ 1000 us, 16 processors)
+	total alloc = 156,894,106,960 bytes  (excludes profiling overheads)
+
+COST CENTRE               MODULE    SRC                               %time %alloc
+
+findFinal.\               Yahtzee   app\Yahtzee.hs:191:64-80           49.9    0.0
+getScore                  YahRules  app\YahRules.hs:110:1-93           36.9    0.0
+findFinal                 Yahtzee   app\Yahtzee.hs:191:1-86             9.8    0.0
+toRollChoiceIndex         YahDice   app\YahDice.hs:(193,1)-(203,65)     1.1   32.3
+getRRDone.theChoices      Yahtzee   app\Yahtzee.hs:(210,9)-(214,41)     0.4    1.4
+weightedSum               Yahtzee   app\Yahtzee.hs:37:1-49              0.3    6.4
+getAllRRChoices.(...)     Yahtzee   app\Yahtzee.hs:242:9-56             0.2   18.9
+toRollSubIndex            YahDice   app\YahDice.hs:85:1-54              0.2    4.1
+multiLookup               Yahtzee   app\Yahtzee.hs:29:1-48              0.2    4.0
+replaceAtIndex.(...)      Yahtzee   app\Yahtzee.hs:80:5-28              0.1    6.0
+replaceAtIndex            Yahtzee   app\Yahtzee.hs:(78,1)-(80,28)       0.1    3.3
+notFaces                  YahDice   app\YahDice.hs:123:1-63             0.1    6.4
+monster.entry.go.rr2EVs   Yahtzee   app\Yahtzee.hs:(155,15)-(156,38)    0.0    3.4
+getAllRRChoices.index     Yahtzee   app\Yahtzee.hs:235:9-62             0.0    4.8
+getRRDone.combinedChoices Yahtzee   app\Yahtzee.hs:217:9-82             0.0    1.2
+monster.entry.go.rr1EVs   Yahtzee   app\Yahtzee.hs:(167,15)-(168,38)    0.0    3.4
+
+
+                                                                                                                                                individual      inherited
+COST CENTRE                                   MODULE                         SRC                                             no.     entries  %time %alloc   %time %alloc
+
+MAIN                                          MAIN                           <built-in>                                      166           0    0.0    0.0   100.0  100.0
+ CAF                                          GHC.IO.Handle.FD               <entire-module>                                 317           0    0.0    0.0     0.0    0.0
+ CAF                                          System.CPUTime.Windows         <entire-module>                                 299           0    0.0    0.0     0.0    0.0
+ CAF                                          GHC.Event.Windows.ConsoleEvent <entire-module>                                 280           0    0.0    0.0     0.0    0.0
+ CAF                                          GHC.Conc.POSIX                 <entire-module>                                 276           0    0.0    0.0     0.0    0.0
+ CAF                                          GHC.IO.StdHandles              <entire-module>                                 238           0    0.0    0.0     0.0    0.0
+ CAF                                          GHC.IO.Handle.Text             <entire-module>                                 235           0    0.0    0.0     0.0    0.0
+ CAF                                          GHC.IO.Encoding.CodePage       <entire-module>                                 225           0    0.0    0.0     0.0    0.0
+ CAF                                          GHC.IO.Encoding                <entire-module>                                 224           0    0.0    0.0     0.0    0.0
+ CAF                                          GHC.Float                      <entire-module>                                 216           0    0.0    0.0     0.0    0.0
+ CAF                                          Data.Fixed                     <entire-module>                                 190           0    0.0    0.0     0.0    0.0
+ CAF                                          Control.Parallel.Strategies    <entire-module>                                 185           0    0.0    0.0     0.0    0.0
+  parList                                     Control.Parallel.Strategies    Control\Parallel\Strategies.hs:552:1-24         342           1    0.0    0.0     0.0    0.0
+  runEval                                     Control.Parallel.Strategies    Control\Parallel\Strategies.hs:219:1-42         340           1    0.0    0.0     0.0    0.0
+ CAF                                          Control.Parallel               <entire-module>                                 184           0    0.0    0.0     0.0    0.0
+  pseq                                        Control.Parallel               Control\Parallel.hs:69:1-20                     336           1    0.0    0.0     0.0    0.0
+ CAF                                          Main                           <entire-module>                                 176           0    0.0    0.0     0.0    0.0
+  getCPUTimeSecs                              Main                           app\Main.hs:(25,1)-(29,34)                      334           1    0.0    0.0     0.0    0.0
+  main                                        Main                           app\Main.hs:(33,1)-(51,55)                      332           1    0.0    0.0     0.0    0.0
+   main.\                                     Main                           app\Main.hs:45:37-38                            525           1    0.0    0.0     0.0    0.0
+ CAF                                          Yahtzee                        <entire-module>                                 175           0    0.0    0.0   100.0  100.0
+  monster                                     Yahtzee                        app\Yahtzee.hs:(120,1)-(176,60)                 337           1    0.0    0.0   100.0  100.0
+   monster.entry                              Yahtzee                        app\Yahtzee.hs:(125,5)-(176,60)                 338          14    0.0    0.0   100.0  100.0
+    getFinalEV                                Yahtzee                        app\Yahtzee.hs:187:1-70                         486          13    0.0    0.0     0.0    0.0
+     getFinalEV.\                             Yahtzee                        app\Yahtzee.hs:187:50-59                        488       13534    0.0    0.0     0.0    0.0
+    monster.entry.go                          Yahtzee                        app\Yahtzee.hs:(133,9)-(176,60)                 345          13    0.0    0.0   100.0  100.0
+     getChoiceList                            Yahtzee                        app\Yahtzee.hs:(60,1)-(70,59)                   346        8179    0.0    0.0     0.0    0.0
+      getChoiceList.a                         Yahtzee                        app\Yahtzee.hs:63:5-64                          487        6139    0.0    0.0     0.0    0.0
+      getChoiceList.fpart                     Yahtzee                        app\Yahtzee.hs:69:9-55                          484        4083    0.0    0.0     0.0    0.0
+      getChoiceList.tpart                     Yahtzee                        app\Yahtzee.hs:70:9-59                          485        4083    0.0    0.0     0.0    0.0
+     monster.entry.go.twoRRLeft               Yahtzee                        app\Yahtzee.hs:170:15-50                        360        8177    0.0    0.0     1.0   36.4
+      getAllRRChoices                         Yahtzee                        app\Yahtzee.hs:(226,1)-(251,22)                 361        8180    0.0    0.3     1.0   36.4
+       getAllRRChoices.choice                 Yahtzee                        app\Yahtzee.hs:249:9-47                         514     2064098    0.0    0.0     0.0    0.4
+        indexAndRollToChoice                  YahDice                        app\YahDice.hs:(278,1)-(317,72)                 515     2064106    0.0    0.0     0.0    0.4
+         indexAndRollToChoice.rollSorted      YahDice                        app\YahDice.hs:308:5-34                         516     2064108    0.0    0.0     0.0    0.0
+          toRollSorted                        YahDice                        app\YahDice.hs:102:1-36                         517     2064109    0.0    0.0     0.0    0.0
+         indexAndRollToChoice.subRoll         YahDice                        app\YahDice.hs:303:5-38                         523     2064093    0.0    0.0     0.0    0.0
+          setNd6                              YahDice                        app\YahDice.hs:(62,1)-(66,72)                   524     2026780    0.0    0.0     0.0    0.0
+         indexAndRollToChoice.subIndex        YahDice                        app\YahDice.hs:(292,5)-(299,65)                 522     2064090    0.0    0.0     0.0    0.0
+         indexAndRollToChoice.theChoice       YahDice                        app\YahDice.hs:(309,5)-(317,72)                 518     2064061    0.0    0.2     0.0    0.4
+          indexAndRollToChoice.theChoice.go   YahDice                        app\YahDice.hs:(311,9)-(317,72)                 519    12373638    0.0    0.2     0.0    0.2
+         indexAndRollToChoice.bin             YahDice                        app\YahDice.hs:(281,5)-(289,66)                 520     2064057    0.0    0.0     0.0    0.0
+       getAllRRChoices.index                  Yahtzee                        app\Yahtzee.hs:235:9-62                         388     2064067    0.0    2.4     0.7   24.1
+        toRollChoiceIndex                     YahDice                        app\YahDice.hs:(193,1)-(203,65)                 392    35751674    0.5   16.1     0.7   21.7
+         toRollChoiceIndex.theIndex           YahDice                        app\YahDice.hs:(197,5)-(203,65)                 393    35741673    0.0    0.3     0.1    2.4
+          toRollSubIndex                      YahDice                        app\YahDice.hs:85:1-54                          394    33683006    0.1    2.1     0.1    2.1
+           setNd6                             YahDice                        app\YahDice.hs:(62,1)-(66,72)                   395    33684057    0.0    0.0     0.0    0.0
+         notFaces                             YahDice                        app\YahDice.hs:123:1-63                         402    33698351    0.0    3.2     0.0    3.2
+          notFaces.\                          YahDice                        app\YahDice.hs:123:46-50                        403   168235789    0.0    0.0     0.0    0.0
+         toRollSorted                         YahDice                        app\YahDice.hs:102:1-36                         401    33685578    0.1    0.0     0.1    0.0
+       getAllRRChoices.bestIdx                Yahtzee                        app\Yahtzee.hs:242:9-56                         521     2064053    0.0    0.0     0.0    0.0
+       getAllRRChoices.rrChoices              Yahtzee                        app\Yahtzee.hs:232:9-34                         369     2064027    0.0    0.0     0.0    0.1
+        getRRChoices                          YahDice                        app\YahDice.hs:149:1-85                         370     2064030    0.0    0.0     0.0    0.0
+         getRRChoices.\                       YahDice                        app\YahDice.hs:149:47-69                        375   259982834    0.0    0.0     0.0    0.0
+          toRollSorted                        YahDice                        app\YahDice.hs:102:1-36                         376     2064025    0.0    0.0     0.0    0.0
+       getAllRRChoices.relevantChoices        Yahtzee                        app\Yahtzee.hs:238:9-83                         389     2064025    0.0    0.1     0.1    2.1
+        multiLookup                           Yahtzee                        app\Yahtzee.hs:29:1-48                          390     2064026    0.1    2.0     0.1    2.0
+       getAllRRChoices.ev                     Yahtzee                        app\Yahtzee.hs:242:9-56                         368     2064019    0.0    0.0     0.0    0.0
+       getAllRRChoices.(...)                  Yahtzee                        app\Yahtzee.hs:242:9-56                         391     2064012    0.1    9.5     0.1    9.5
+     monster.entry.go.rr2EVs                  Yahtzee                        app\Yahtzee.hs:(155,15)-(156,38)                456        8174    0.0    3.4     0.2    3.4
+      monster.entry.go.rr2EVs.\               Yahtzee                        app\Yahtzee.hs:155:58-83                        459    35707798    0.0    0.0     0.2    0.0
+       monster.entry.go.lookupEV              Yahtzee                        app\Yahtzee.hs:154:15-52                        461    35749013    0.2    0.0     0.2    0.0
+     monster.entry.go.oneRRLeft               Yahtzee                        app\Yahtzee.hs:163:15-51                        438        8173    0.0    0.0     1.1   36.4
+      getAllRRChoices                         Yahtzee                        app\Yahtzee.hs:(226,1)-(251,22)                 439        8178    0.0    0.3     1.1   36.4
+       getAllRRChoices.choice                 Yahtzee                        app\Yahtzee.hs:249:9-47                         499     2064100    0.0    0.0     0.0    0.4
+        indexAndRollToChoice                  YahDice                        app\YahDice.hs:(278,1)-(317,72)                 500     2064099    0.0    0.0     0.0    0.4
+         indexAndRollToChoice.rollSorted      YahDice                        app\YahDice.hs:308:5-34                         501     2064098    0.0    0.0     0.0    0.0
+          toRollSorted                        YahDice                        app\YahDice.hs:102:1-36                         502     2064108    0.0    0.0     0.0    0.0
+         indexAndRollToChoice.subRoll         YahDice                        app\YahDice.hs:303:5-38                         508     2064093    0.0    0.0     0.0    0.0
+          setNd6                              YahDice                        app\YahDice.hs:(62,1)-(66,72)                   513     2030536    0.0    0.0     0.0    0.0
+         indexAndRollToChoice.subIndex        YahDice                        app\YahDice.hs:(292,5)-(299,65)                 507     2064092    0.0    0.0     0.0    0.0
+         indexAndRollToChoice.bin             YahDice                        app\YahDice.hs:(281,5)-(289,66)                 505     2064048    0.0    0.0     0.0    0.0
+         indexAndRollToChoice.theChoice       YahDice                        app\YahDice.hs:(309,5)-(317,72)                 503     2064023    0.0    0.2     0.0    0.4
+          indexAndRollToChoice.theChoice.go   YahDice                        app\YahDice.hs:(311,9)-(317,72)                 504    12373610    0.0    0.2     0.0    0.2
+       getAllRRChoices.bestIdx                Yahtzee                        app\Yahtzee.hs:242:9-56                         506     2064046    0.0    0.0     0.0    0.0
+       getAllRRChoices.(...)                  Yahtzee                        app\Yahtzee.hs:242:9-56                         448     2064044    0.1    9.4     0.1    9.4
+       getAllRRChoices.index                  Yahtzee                        app\Yahtzee.hs:235:9-62                         445     2064031    0.0    2.4     0.8   24.1
+        toRollChoiceIndex                     YahDice                        app\YahDice.hs:(193,1)-(203,65)                 449    35753895    0.6   16.2     0.8   21.7
+         toRollChoiceIndex.theIndex           YahDice                        app\YahDice.hs:(197,5)-(203,65)                 450    35745502    0.0    0.3     0.1    2.4
+          toRollSubIndex                      YahDice                        app\YahDice.hs:85:1-54                          451    33693907    0.1    2.1     0.1    2.1
+           setNd6                             YahDice                        app\YahDice.hs:(62,1)-(66,72)                   452    33696489    0.0    0.0     0.0    0.0
+         toRollSorted                         YahDice                        app\YahDice.hs:102:1-36                         453    33696065    0.1    0.0     0.1    0.0
+         notFaces                             YahDice                        app\YahDice.hs:123:1-63                         454    33694777    0.0    3.2     0.0    3.2
+          notFaces.\                          YahDice                        app\YahDice.hs:123:46-50                        455   168304078    0.0    0.0     0.0    0.0
+       getAllRRChoices.relevantChoices        Yahtzee                        app\Yahtzee.hs:238:9-83                         446     2064029    0.0    0.1     0.1    2.1
+        multiLookup                           Yahtzee                        app\Yahtzee.hs:29:1-48                          447     2064037    0.1    2.0     0.1    2.0
+       getAllRRChoices.ev                     Yahtzee                        app\Yahtzee.hs:242:9-56                         440     2063987    0.0    0.0     0.0    0.0
+       getAllRRChoices.rrChoices              Yahtzee                        app\Yahtzee.hs:232:9-34                         441     2063961    0.0    0.0     0.0    0.1
+        getRRChoices                          YahDice                        app\YahDice.hs:149:1-85                         442     2063970    0.0    0.0     0.0    0.0
+         getRRChoices.\                       YahDice                        app\YahDice.hs:149:47-69                        443   259955374    0.0    0.0     0.0    0.0
+          toRollSorted                        YahDice                        app\YahDice.hs:102:1-36                         444     2064010    0.0    0.0     0.0    0.0
+     monster.entry.go.twoRRStripped           Yahtzee                        app\Yahtzee.hs:173:15-47                        359        8173    0.0    0.1     0.0    0.1
+     monster.entry.go.rrDone                  Yahtzee                        app\Yahtzee.hs:138:15-65                        462        8167    0.0    0.0    97.2   12.5
+      getRRDone                               Yahtzee                        app\Yahtzee.hs:(197,1)-(220,22)                 463        8171    0.0    0.2    97.2   12.5
+       getRRDone.combinedChoices              Yahtzee                        app\Yahtzee.hs:217:9-82                         470     2064051    0.0    1.2     0.0    1.4
+        getRRDone.combinedChoices.\           Yahtzee                        app\Yahtzee.hs:217:47-70                        472    13416344    0.0    0.1     0.0    0.1
+       getRRDone.(...)                        Yahtzee                        app\Yahtzee.hs:218:9-65                         471     2063999    0.0    0.0     0.0    0.0
+       getRRDone.theChoices                   Yahtzee                        app\Yahtzee.hs:(210,9)-(214,41)                 465     2063977    0.4    1.4    97.2   10.9
+        swapBoolAt                            Yahtzee                        app\Yahtzee.hs:84:1-51                          479    13415201    0.0    0.3     0.2    9.5
+         replaceAtIndex                       Yahtzee                        app\Yahtzee.hs:(78,1)-(80,28)                   480    13415091    0.1    3.3     0.1    9.3
+          replaceAtIndex.z                    Yahtzee                        app\Yahtzee.hs:80:5-28                          482    13414783    0.0    0.0     0.0    0.0
+          replaceAtIndex.(...)                Yahtzee                        app\Yahtzee.hs:80:5-28                          481    13414063    0.1    6.0     0.1    6.0
+          replaceAtIndex.b                    Yahtzee                        app\Yahtzee.hs:80:5-28                          490    13409202    0.0    0.0     0.0    0.0
+        getScore                              YahRules                       app\YahRules.hs:110:1-93                        473    13414900   36.9    0.0    37.0    0.0
+         getScore.\                           YahRules                       app\YahRules.hs:110:57-81                       475 16136944310    0.1    0.0     0.1    0.0
+        findFinal                             Yahtzee                        app\Yahtzee.hs:191:1-86                         483    13413389    9.8    0.0    59.7    0.0
+         findFinal.\                          Yahtzee                        app\Yahtzee.hs:191:64-80                        489  5494969567   49.9    0.0    49.9    0.0
+       getRRDone.score                        Yahtzee                        app\Yahtzee.hs:218:9-65                         464     2063937    0.0    0.0     0.0    0.0
+       getRRDone.row                          Yahtzee                        app\Yahtzee.hs:218:9-65                         498     2063808    0.0    0.0     0.0    0.0
+       getRRDone.openRowIndices               Yahtzee                        app\Yahtzee.hs:206:9-61                         466        8180    0.0    0.0     0.0    0.0
+        boolToIndex                           Yahtzee                        app\Yahtzee.hs:74:1-77                          467        8176    0.0    0.0     0.0    0.0
+         boolToIndex.\                        Yahtzee                        app\Yahtzee.hs:74:52-61                         469      106294    0.0    0.0     0.0    0.0
+       getRRDone.row                          Yahtzee                        app\Yahtzee.hs:218:9-65                         497         122    0.0    0.0     0.0    0.0
+     monster.entry.go.finalEV                 Yahtzee                        app\Yahtzee.hs:174:15-68                        353        8160    0.0    0.0     0.0    0.3
+      weightedEVOfRolls                       Yahtzee                        app\Yahtzee.hs:44:1-63                          354        8173    0.0    0.1     0.0    0.3
+       weightedSum                            Yahtzee                        app\Yahtzee.hs:37:1-49                          363        8171    0.0    0.2     0.0    0.2
+        weightedSum.\                         Yahtzee                        app\Yahtzee.hs:37:40-42                         364     2063877    0.0    0.0     0.0    0.0
+     monster.entry.go.rr1EVs                  Yahtzee                        app\Yahtzee.hs:(167,15)-(168,38)                404        8153    0.0    3.4     0.1    3.4
+      monster.entry.go.rr1EVs.\               Yahtzee                        app\Yahtzee.hs:167:58-82                        426    35694481    0.0    0.0     0.1    0.0
+       monster.entry.go.lookup2               Yahtzee                        app\Yahtzee.hs:166:15-54                        428    35749060    0.1    0.0     0.1    0.0
+     monster.entry.go.choiceEVs               Yahtzee                        app\Yahtzee.hs:160:15-64                        457        8152    0.0    0.2     0.2    3.7
+      weightedSum                             Yahtzee                        app\Yahtzee.hs:37:1-49                          458     3783873    0.2    3.1     0.2    3.5
+       weightedSum.\                          Yahtzee                        app\Yahtzee.hs:37:40-42                         460    35752623    0.0    0.4     0.0    0.4
+     monster.entry.go.choices2                Yahtzee                        app\Yahtzee.hs:169:15-63                        411        8140    0.0    0.2     0.1    3.6
+      weightedSum                             Yahtzee                        app\Yahtzee.hs:37:1-49                          412     3783895    0.1    3.1     0.1    3.5
+       weightedSum.\                          Yahtzee                        app\Yahtzee.hs:37:40-42                         427    35750865    0.0    0.4     0.0    0.4
+     monster.entry.go.rrOuts                  Yahtzee                        app\Yahtzee.hs:145:15-62                        405           1    0.0    0.0     0.0    0.0
+    using                                     Control.Parallel.Strategies    Control\Parallel\Strategies.hs:338:1-35         339          13    0.0    0.0     0.0    0.0
+     runEval                                  Control.Parallel.Strategies    Control\Parallel\Strategies.hs:219:1-42         341           0    0.0    0.0     0.0    0.0
+      parList                                 Control.Parallel.Strategies    Control\Parallel\Strategies.hs:552:1-24         344           0    0.0    0.0     0.0    0.0
+       rparWith                               Control.Parallel.Strategies    Control\Parallel\Strategies.hs:494:1-32         348           0    0.0    0.0     0.0    0.0
+        parEval                               Control.Parallel.Strategies    Control\Parallel\Strategies.hs:(513,1)-(518,28) 349        8191    0.0    0.0     0.0    0.0
+         rdeepseq                             Control.Parallel.Strategies    Control\Parallel\Strategies.hs:450:1-38         351           0    0.0    0.0     0.0    0.0
+          rseq                                Control.Parallel.Strategies    Control\Parallel\Strategies.hs:429:1-26         352        8175    0.0    0.0     0.0    0.0
+        rdeepseq                              Control.Parallel.Strategies    Control\Parallel\Strategies.hs:450:1-38         350        8179    0.0    0.0     0.0    0.0
+    parList                                   Control.Parallel.Strategies    Control\Parallel\Strategies.hs:552:1-24         343           0    0.0    0.0     0.0    0.0
+     rparWith                                 Control.Parallel.Strategies    Control\Parallel\Strategies.hs:494:1-32         347           1    0.0    0.0     0.0    0.0
+  boolToIndex                                 Yahtzee                        app\Yahtzee.hs:74:1-77                          468           0    0.0    0.0     0.0    0.0
+ CAF                                          YahRules                       <entire-module>                                 174           0    0.0    0.0     0.0    0.0
+  scoreTable                                  YahRules                       app\YahRules.hs:104:1-86                        474           1    0.0    0.0     0.0    0.0
+   fillRowIndexed                             YahRules                       app\YahRules.hs:92:1-57                         476        3274    0.0    0.0     0.0    0.0
+    fillRow                                   YahRules                       app\YahRules.hs:(39,1)-(87,50)                  477        3273    0.0    0.0     0.0    0.0
+    toRollSorted                              YahDice                        app\YahDice.hs:102:1-36                         478         252    0.0    0.0     0.0    0.0
+ CAF                                          YahDice                        <entire-module>                                 173           0    0.0    0.0     0.0    0.0
+  allRR                                       YahDice                        app\YahDice.hs:114:1-113                        379           1    0.0    0.0     0.0    0.0
+  allRROutcomes                               YahDice                        app\YahDice.hs:(336,1)-(343,31)                 406           1    0.0    0.0     0.0    0.0
+   allRROutcomes.byIndex                      YahDice                        app\YahDice.hs:(342,5)-(343,31)                 407           1    0.0    0.0     0.0    0.0
+    allRROutcomes.byIndex.\                   YahDice                        app\YahDice.hs:342:38-55                        425        4368    0.0    0.0     0.0    0.0
+     toRollIndex                              YahDice                        app\YahDice.hs:98:1-53                          429        4368    0.0    0.0     0.0    0.0
+   allRROutcomes.bySorted                     YahDice                        app\YahDice.hs:(340,5)-(341,32)                 408           1    0.0    0.0     0.0    0.0
+    allRROutcomes.bySorted.\                  YahDice                        app\YahDice.hs:340:33-50                        414         462    0.0    0.0     0.0    0.0
+     rrProbTableII                            YahDice                        app\YahDice.hs:(167,1)-(178,64)                 415         462    0.0    0.0     0.0    0.0
+      rrProbTableII.unsorted                  YahDice                        app\YahDice.hs:(169,5)-(178,64)                 416         462    0.0    0.0     0.0    0.0
+       rrProbTableII.unsorted.\               YahDice                        app\YahDice.hs:169:32-59                        424        4368    0.0    0.0     0.0    0.0
+        rrProbTableII.unsorted.notRerolled    YahDice                        app\YahDice.hs:172:9-83                         430        4368    0.0    0.0     0.0    0.0
+         rrProbTableII.unsorted.notRerolled.\ YahDice                        app\YahDice.hs:172:51-55                        437        2310    0.0    0.0     0.0    0.0
+       rrProbTableII.unsorted.countRerolled   YahDice                        app\YahDice.hs:175:9-49                         417         462    0.0    0.0     0.0    0.0
+       rrProbTableII.unsorted.theRRs          YahDice                        app\YahDice.hs:178:9-64                         420         462    0.0    0.0     0.0    0.0
+        probsNd6                              YahDice                        app\YahDice.hs:(72,1)-(75,52)                   421         462    0.0    0.0     0.0    0.0
+         probsNd6.doCount                     YahDice                        app\YahDice.hs:75:5-52                          491        4368    0.0    0.0     0.0    0.0
+         probsNd6.allSorted                   YahDice                        app\YahDice.hs:74:5-35                          492         462    0.0    0.0     0.0    0.0
+          allNd6                              YahDice                        app\YahDice.hs:(55,1)-(56,57)                   493         792    0.0    0.0     0.0    0.0
+         setNd6                               YahDice                        app\YahDice.hs:(62,1)-(66,72)                   422         462    0.0    0.0     0.0    0.0
+          setNd6.gen                          YahDice                        app\YahDice.hs:(65,5)-(66,72)                   423        6188    0.0    0.0     0.0    0.0
+   allRROutcomes.listActual                   YahDice                        app\YahDice.hs:(338,5)-(339,36)                 409           1    0.0    0.0     0.0    0.0
+    indexToRollChoice                         YahDice                        app\YahDice.hs:(213,1)-(258,59)                 413         462    0.0    0.0     0.0    0.0
+     indexToRollChoice.bin                    YahDice                        app\YahDice.hs:(216,5)-(224,63)                 419         462    0.0    0.0     0.0    0.0
+     indexToRollChoice.choice                 YahDice                        app\YahDice.hs:(251,5)-(258,59)                 418         462    0.0    0.0     0.0    0.0
+     indexToRollChoice.roll                   YahDice                        app\YahDice.hs:(240,5)-(249,61)                 435         462    0.0    0.0     0.0    0.0
+      indexToRollChoice.roll.tackOn           YahDice                        app\YahDice.hs:(242,9)-(249,61)                 436         787    0.0    0.0     0.0    0.0
+     indexToRollChoice.subIndex               YahDice                        app\YahDice.hs:(227,5)-(234,64)                 431         462    0.0    0.0     0.0    0.0
+     indexToRollChoice.subRoll                YahDice                        app\YahDice.hs:237:5-38                         432         462    0.0    0.0     0.0    0.0
+      setNd6                                  YahDice                        app\YahDice.hs:(62,1)-(66,72)                   433         462    0.0    0.0     0.0    0.0
+       setNd6.gen                             YahDice                        app\YahDice.hs:(65,5)-(66,72)                   434         792    0.0    0.0     0.0    0.0
+  rangeRollAndChoiceIndex                     YahDice                        app\YahDice.hs:327:1-34                         410           1    0.0    0.0     0.0    0.0
+  rerollChoices                               YahDice                        app\YahDice.hs:(144,1)-(146,50)                 371           1    0.0    0.0     0.0    0.0
+   rerollChoices.choices                      YahDice                        app\YahDice.hs:146:5-50                         377         252    0.0    0.0     0.0    0.0
+    recurDiffRRs                              YahDice                        app\YahDice.hs:(131,1)-(139,54)                 378        8064    0.0    0.0     0.0    0.0
+     recurDiffRRs.knownRoll                   YahDice                        app\YahDice.hs:138:5-32                         380        7812    0.0    0.0     0.0    0.0
+     recurDiffRRs.wfRoll                      YahDice                        app\YahDice.hs:137:5-30                         381        7812    0.0    0.0     0.0    0.0
+      whichFaces                              YahDice                        app\YahDice.hs:119:1-61                         382        7812    0.0    0.0     0.0    0.0
+       whichFaces.\                           YahDice                        app\YahDice.hs:119:48                           383       39060    0.0    0.0     0.0    0.0
+     recurDiffRRs.knownRoll                   YahDice                        app\YahDice.hs:134:5-32                         384         252    0.0    0.0     0.0    0.0
+     recurDiffRRs.wfRoll                      YahDice                        app\YahDice.hs:133:5-30                         385         252    0.0    0.0     0.0    0.0
+      whichFaces                              YahDice                        app\YahDice.hs:119:1-61                         386         252    0.0    0.0     0.0    0.0
+       whichFaces.\                           YahDice                        app\YahDice.hs:119:48                           387        1260    0.0    0.0     0.0    0.0
+  setRolls                                    YahDice                        app\YahDice.hs:89:1-19                          362           1    0.0    0.0     0.0    0.0
+  setRollsSorted                              YahDice                        app\YahDice.hs:93:1-25                          372           1    0.0    0.0     0.0    0.0
+   setNd6                                     YahDice                        app\YahDice.hs:(62,1)-(66,72)                   373           1    0.0    0.0     0.0    0.0
+    setNd6.gen                                YahDice                        app\YahDice.hs:(65,5)-(66,72)                   374         462    0.0    0.0     0.0    0.0
+  theRollProbs                                YahDice                        app\YahDice.hs:79:1-35                          355           1    0.0    0.0     0.0    0.0
+   probsNd6                                   YahDice                        app\YahDice.hs:(72,1)-(75,52)                   356           1    0.0    0.0     0.0    0.0
+    probsNd6.doCount                          YahDice                        app\YahDice.hs:75:5-52                          365         340    0.0    0.0     0.0    0.0
+    probsNd6.allSorted                        YahDice                        app\YahDice.hs:74:5-35                          366           1    0.0    0.0     0.0    0.0
+     allNd6                                   YahDice                        app\YahDice.hs:(55,1)-(56,57)                   367           6    0.0    0.0     0.0    0.0
+    setNd6                                    YahDice                        app\YahDice.hs:(62,1)-(66,72)                   357           1    0.0    0.0     0.0    0.0
+     setNd6.gen                               YahDice                        app\YahDice.hs:(65,5)-(66,72)                   358         466    0.0    0.0     0.0    0.0
+  indexAndRollToChoice                        YahDice                        app\YahDice.hs:(278,1)-(317,72)                 509           0    0.0    0.0     0.0    0.0
+   indexAndRollToChoice.subRoll               YahDice                        app\YahDice.hs:303:5-38                         510           0    0.0    0.0     0.0    0.0
+    setNd6                                    YahDice                        app\YahDice.hs:(62,1)-(66,72)                   511           1    0.0    0.0     0.0    0.0
+     setNd6.gen                               YahDice                        app\YahDice.hs:(65,5)-(66,72)                   512         790    0.0    0.0     0.0    0.0
+  indexToRollChoice                           YahDice                        app\YahDice.hs:(213,1)-(258,59)                 494           0    0.0    0.0     0.0    0.0
+   indexToRollChoice.roll                     YahDice                        app\YahDice.hs:(240,5)-(249,61)                 495           0    0.0    0.0     0.0    0.0
+    indexToRollChoice.roll.tackOn             YahDice                        app\YahDice.hs:(242,9)-(249,61)                 496           5    0.0    0.0     0.0    0.0
+  toRollChoiceIndex                           YahDice                        app\YahDice.hs:(193,1)-(203,65)                 396           0    0.0    0.0     0.0    0.0
+   toRollChoiceIndex.theIndex                 YahDice                        app\YahDice.hs:(197,5)-(203,65)                 397           0    0.0    0.0     0.0    0.0
+    toRollSubIndex                            YahDice                        app\YahDice.hs:85:1-54                          398           0    0.0    0.0     0.0    0.0
+     setNd6                                   YahDice                        app\YahDice.hs:(62,1)-(66,72)                   399           0    0.0    0.0     0.0    0.0
+      setNd6.gen                              YahDice                        app\YahDice.hs:(65,5)-(66,72)                   400         791    0.0    0.0     0.0    0.0
+ main                                         Main                           app\Main.hs:(33,1)-(51,55)                      333           0    0.0    0.0     0.0    0.0
+  getCPUTimeSecs                              Main                           app\Main.hs:(25,1)-(29,34)                      335           0    0.0    0.0     0.0    0.0

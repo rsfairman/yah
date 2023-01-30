@@ -1,0 +1,32 @@
+Up to date
+"EV of an optimally played game is [227.7830317884566]"
+"full run elapsed user secs: 683.9244142s"
+"full run elapsed CPU secs: 4976.734375"
+1,023,021,325,648 bytes allocated in the heap
+  32,238,545,920 bytes copied during GC
+     918,242,312 bytes maximum residency (91 sample(s))
+       8,928,432 bytes maximum slop
+            2329 MiB total memory in use (0 MB lost due to fragmentation)
+
+                                     Tot time (elapsed)  Avg pause  Max pause
+  Gen  0     48075 colls, 48075 par   21.969s   9.889s     0.0002s    0.0093s
+  Gen  1        91 colls,    90 par   50.828s  10.665s     0.1172s    1.5690s
+
+  Parallel GC work balance: 70.30% (serial 0%, perfect 100%)
+
+  TASKS: 18 (1 bound, 17 peak workers (17 total), using -N16)
+
+  SPARKS: 8191 (8178 converted, 0 overflowed, 0 dud, 0 GC'd, 13 fizzled)
+
+  INIT    time    0.000s  (  0.001s elapsed)
+  MUT     time  4879.719s  (663.373s elapsed)
+  GC      time   68.688s  ( 15.818s elapsed)
+  RP      time    0.000s  (  0.000s elapsed)
+  PROF    time    4.109s  (  4.736s elapsed)
+  EXIT    time    0.000s  (  0.001s elapsed)
+  Total   time  4952.516s  (683.929s elapsed)
+
+  Alloc rate    209,647,600 bytes per MUT second
+
+  Productivity  98.6% of total user, 97.7% of total elapsed
+

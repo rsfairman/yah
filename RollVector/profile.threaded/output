@@ -1,0 +1,36 @@
+Build profile: -w ghc-9.2.5 -O1
+In order, the following will be built (use -v for more details):
+ - yah-0.1.0.0 (exe:yah) (first run)
+Preprocessing executable 'yah' for yah-0.1.0.0..
+Building executable 'yah' for yah-0.1.0.0..
+"EV of an optimally played game is [227.7830317884566]"
+"full run elapsed user secs: 424.3859942s"
+"full run elapsed CPU secs: 6233.421875"
+1,023,454,128,872 bytes allocated in the heap
+  52,766,446,632 bytes copied during GC
+     927,266,784 bytes maximum residency (145 sample(s))
+       7,810,056 bytes maximum slop
+            2406 MiB total memory in use (0 MB lost due to fragmentation)
+
+                                     Tot time (elapsed)  Avg pause  Max pause
+  Gen  0     42907 colls, 42907 par   32.719s  10.149s     0.0002s    0.0955s
+  Gen  1       145 colls,   144 par   109.641s  17.079s     0.1178s    0.9143s
+
+  Parallel GC work balance: 81.67% (serial 0%, perfect 100%)
+
+  TASKS: 18 (1 bound, 17 peak workers (17 total), using -N16)
+
+  SPARKS: 8191 (8178 converted, 0 overflowed, 0 dud, 0 GC'd, 13 fizzled)
+
+  INIT    time    0.000s  (  0.001s elapsed)
+  MUT     time  6073.906s  (397.157s elapsed)
+  GC      time  134.500s  ( 18.968s elapsed)
+  RP      time    0.000s  (  0.000s elapsed)
+  PROF    time    7.859s  (  8.260s elapsed)
+  EXIT    time    0.000s  (  0.001s elapsed)
+  Total   time  6216.266s  (424.387s elapsed)
+
+  Alloc rate    168,500,152 bytes per MUT second
+
+  Productivity  97.8% of total user, 95.5% of total elapsed
+
