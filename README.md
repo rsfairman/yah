@@ -45,7 +45,7 @@ The `RowVectorIO` version is essentially the same as the `RowVectorST` version, 
 
 At this point, a look at the profiler output shows that most of the effort is devoted to the infrastructure *around* the central calculation, and there are still a number of places where `!!` and the like are used.
 
-I'm starting to lose interest in this exercise, but the `WhyNot` version makes some further optimizations. Vectors are used more widely so that `!!` can be avoided. It's clear from the profiler that more than could be done; it wouldn't surprise me if the time could be brought down to the range of one or two seconds. It's also clear that, as the calculation is made more efficient, a different parallelization strategy is needed. 
+I'm starting to lose interest in this exercise, but the `WhyNot` version makes some further optimizations. Vectors are used more widely so that `!!` can be avoided. It's clear from the profiler that more could be done; it wouldn't surprise me if the time could be brought down to the range of one or two seconds. It's also clear that, as the calculation is made more efficient, a different parallelization strategy is needed. 
 
 
 Conclusions
