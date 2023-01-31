@@ -3,7 +3,7 @@ module Main where
 {-
 
 Prints the score of an optimally played game similar to Yahtzee: the
-'WhyNot' version.
+'WhyNot' version, aka version 24
 
 See YahRules.hs for the rules of the game and Yahtzee.hs for a discussion
 of how this solution is found, along with the implementation.
@@ -12,7 +12,7 @@ This version makes various tweaks to speed things up, mostly to use Vectors
 instead of lists. No doubt, there's a lot more that could be done, but I've
 reached the end of my patience.
 
-The program now takes five or six seconds to run single-threaded.
+The program now takes three or four seconds to run single-threaded.
 
 -}
 

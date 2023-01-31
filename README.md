@@ -22,7 +22,7 @@ Each version consists of these files.
 |`RowIndex`   |   86.371 |   90.078  |  10.139 |   151.297 |
 |`RowVectorST`|   66.856 |   77.359  |  --.--- |   ---.--- |
 |`RowVectorIO`|   61.444 |   70.766  |   8.543 |   110.641 |
-|`WhyNot`     |    4.683 |    4.656  |   4.279 |    54.031 |
+|`WhyNot`     |    3.473 |    3.469  |   3.069 |    34.500 |
 
 
 These times, in seconds, are for an i5-12600K (3.69 GHz and 16 cores) with 16 GB of RAM, and it may be relevant that the "disk" is solid state. The '(s)' is for single-threaded, and '(t)' is for threaded. The programs were run with `O2` optimization, although it didn't seem to make much difference. Everything was done with GHC 9.2.5 on Windows 10. I was careful about timing, but not obsessive, and the numbers vary by a few percent around the values given above. There are profiler output files for every version except `Initial` and `Cleaner`.
@@ -63,9 +63,9 @@ If you want to learn Haskell, my best advice is to ignore category theory. If an
 
 The biggest thing that would improve Haskell's usability is top-level mutable state (global variables). This would be contrary to the spirit of the language, and make any number of people howl, but it's already possible. The "unsafePerformIO hack" is one way to access global variables now, and it's possible to read/write to an external file and treat that as mutable state. So global variables are already part of the language in some sense; they should be easier to use.
 
-Haskell needs more strictness and the ability to unambiguously sequence the order of actions. Certain tasks are easier to express and reason about using an imperative famework. Maybe `DO` (instead of `do`) could be used for blocks of imperative code. Inside a `DO` block, there would be no "thunking" whatsoever and no reordering of operations. Ideally, `DO` should be recursive so that when a function is called from a `DO` block, it is treated imperatively; if the same function is called from lazy code, then the function is also allowed to be lazy.
+Haskell needs more strictness and the ability to sequence the order of actions in a way that's iron-clad. Certain tasks are easier to express and reason about using an imperative famework. Maybe `DO` (instead of `do`) could be used for blocks of imperative code. Inside a `DO` block, there would be no "thunking" whatsoever and no reordering of operations. Ideally, `DO` should be recursive so that when a function is called from a `DO` block, it is treated imperatively; if the same function is called from lazy code, then the function is also allowed to be lazy.
 
-One of the reasons Haskell is slow is all of the boxing (and thunking). Things like `Data.Vector.Unboxed` help, but they are syntactically awkward. The language needs a way to express the idea (expressed in C-like terms) of an array of structs. 
+One of the reasons Haskell is slow is all of the boxing (and thunking). Things like `Data.Vector.Unboxed` help, but they are awkward to use. The language needs a way to express the idea (expressed in C-like terms) of an array of (unboxed) anonymous structs. 
 
 
 

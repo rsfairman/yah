@@ -254,7 +254,10 @@ getAllRRChoices choiceEVs = Vb.fromList $ do
     -- After 'Initial', I used this, knowing that it's slow:
     -- let (ev,bestIdx) = last $ sortOn fst relevantChoices
     -- At the end, it turned out to *very* slow, so went back to this:
-    let (ev,bestIdx) = head $ sortOn (negate . snd) relevantChoices
+    -- let (ev,bestIdx) = head $ sortOn (negate . snd) relevantChoices
+    -- but the code has changed a bit, so it's not right.
+    -- This is even faster anyway:
+    let (ev,bestIdx) = maximumBy (comparing fst) relevantChoices
     
     -- See YahDice.hs. Noting the choice here is irrelevant to the EV
     -- calculation, but it's needed if we're to play the game optimally.
